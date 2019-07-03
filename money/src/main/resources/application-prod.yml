@@ -1,0 +1,12 @@
+server:
+  port: 1111
+
+
+limit:
+  minMoney: 2
+  maxMoney: 99999
+  description: 最少要发${limit.minMoney}元,最多发${limit.maxMoney}元
+
+
+
+
