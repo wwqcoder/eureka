@@ -1,0 +1,25 @@
+resilience4j.retry:
+  retryAspectOrder: 399
+  backends:
+    retryBackendA:
+      maxRetryAttempts: 3
+      waitDuration: 600
+      eventConsumerBufferSize: 1
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      enableRandomizedWait: false
+      randomizedWaitFactor: 2
+      retryExceptionPredicate: com.jd.consumer.RecordFailurePredicate
+      retryExceptions:
+        - java.io.IOException
+      ignoreExceptions:
+        - com.jd.consumer.IgnoredException
+spring:
+  application:
+    name: consumer
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
